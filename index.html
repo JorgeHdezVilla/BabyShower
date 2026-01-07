@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación Baby Shower (Niño)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --sky-50:#F4FBFF;
+      --sky-100:#E7F6FF;
+      --sky-200:#CFEFFF;
+      --sky-300:#B3E6FF;
+      --sky-400:#8BD8FF;
+
+      --blue-500:#3AA7FF;
+      --blue-600:#1C86E6;
+      --blue-700:#146CC0;
+
+      --cream:#FFF8ED;
+      --white:#FFFFFF;
+
+      --butter:#FFE8A8;
+      --butter-2:#FFD97A;
+
+      --ink:#1E2A3A;
+      --muted:#56657A;
+
+      --card-shadow: 0 18px 50px rgba(20, 40, 70, .18);
+      --soft-shadow: 0 10px 25px rgba(20, 40, 70, .14);
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+
+      --title-font: "Baloo 2", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --text-font: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--text-font);
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 50% -120px, rgba(255, 233, 168, .55), transparent 70%),
+        radial-gradient(700px 420px at 20% 10%, rgba(179, 230, 255, .7), transparent 60%),
+        radial-gradient(900px 520px at 90% 40%, rgba(207, 239, 255, .7), transparent 65%),
+        linear-gradient(180deg, var(--sky-50), var(--sky-100) 55%, #F8FBFF);
+      overflow-x:hidden;
+    }
+
+    /* ===== Layout ===== */
+    .page{
+      min-height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 22px 14px 30px;
+      position: relative;
+    }
+
+    .wrap{
+      width: min(980px, 100%);
+      position: relative;
+      padding-top: 110px;
+      padding-bottom: 90px;
+    }
+
+    /* ===== Decorative top/bottom ===== */
+    .decor{
+      position:absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(980px, 100%);
+      pointer-events:none;
+      z-index: 0;
+    }
+
+    .decor.top{ top: 8px; }
+    .decor.bottom{ bottom: 8px; }
+
+    .decor .band{
+      border-radius: 999px;
+      padding: 14px 18px;
+      margin: 0 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,.65), rgba(255,248,237,.72), rgba(255,255,255,.65));
+      box-shadow: 0 14px 35px rgba(20,40,70,.10);
+      position: relative;
+      overflow:hidden;
+    }
+
+    .decor .floaties{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+
+    .decor .left, .decor .right{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      opacity: .95;
+    }
+
+    .decor .center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Clouds */
+    .cloud{
+      width: 86px; height: 32px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 10px 20px rgba(20,40,70,.10);
+      position: relative;
+      border: 2px solid rgba(207,239,255,.9);
+    }
+    .cloud:before, .cloud:after{
+      content:"";
+      position:absolute;
+      background: rgba(255,255,255,.95);
+      border: 2px solid rgba(207,239,255,.9);
+      border-radius: 50%;
+      top: -18px;
+      width: 34px; height: 34px;
+      box-shadow: 0 10px 20px rgba(20,40,70,.08);
+    }
+    .cloud:before{ left: 10px; }
+    .cloud:after{ left: 34px; top: -12px; width: 28px; height: 28px; }
+
+    /* Paw + bone icons (simple SVG via CSS background) */
+    .icon{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.85);
+      border: 2px solid rgba(179,230,255,.9);
+      box-shadow: 0 10px 18px rgba(20,40,70,.10);
+      display:grid;
+      place-items:center;
+      position: relative;
+      overflow:hidden;
+    }
+
+    .icon svg{ width: 22px; height: 22px; }
+    .icon .fill-blue{ fill: var(--blue-600); opacity:.95; }
+    .icon .fill-butter{ fill: var(--butter-2); opacity:.95; }
+    .icon .stroke{ stroke: rgba(20,40,70,.16); stroke-width: 1.2; }
+
+    .sparkle{
+      width: 16px; height: 16px;
+      background: radial-gradient(circle at 50% 50%, var(--butter-2), rgba(255, 217, 122, 0) 70%);
+      filter: drop-shadow(0 8px 10px rgba(20,40,70,.12));
+      border-radius: 50%;
+      position: relative;
+    }
+    .sparkle:before, .sparkle:after{
+      content:"";
+      position:absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.8), rgba(255,255,255,0) 65%);
+      transform: rotate(45deg);
+      opacity: .8;
+    }
+    .sparkle:after{ transform: rotate(-30deg); opacity:.55; }
+
+    /* Floating background doodles */
+    .doodles{
+      position:absolute;
+      inset: 0;
+      pointer-events:none;
+      z-index: 0;
+      overflow:hidden;
+    }
+
+    .bubble{
+      position:absolute;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.65);
+      border: 2px solid rgba(179,230,255,.55);
+      filter: blur(.1px);
+    }
+
+    .star{
+      position:absolute;
+      width: 18px; height: 18px;
+      transform: rotate(12deg);
+      filter: drop-shadow(0 8px 12px rgba(20,40,70,.10));
+      opacity:.9;
+    }
+    .star svg{ width: 100%; height: 100%; }
+    .star .s{ fill: rgba(255, 217, 122, .95); }
+
+    .balloon{
+      position:absolute;
+      width: 40px; height: 52px;
+      border-radius: 999px 999px 999px 999px;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.95), rgba(255,255,255,0) 35%),
+                  linear-gradient(180deg, rgba(179,230,255,.95), rgba(139,216,255,.85));
+      box-shadow: 0 18px 30px rgba(20,40,70,.12);
+      border: 2px solid rgba(28,134,230,.12);
+      opacity:.7;
+    }
+    .balloon:after{
+      content:"";
+      position:absolute;
+      left: 50%;
+      bottom: -14px;
+      width: 2px; height: 44px;
+      background: rgba(28,134,230,.18);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .balloon:before{
+      content:"";
+      position:absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 10px; height: 8px;
+      background: rgba(255, 217, 122, .9);
+      transform: translateX(-50%);
+      border-radius: 2px 2px 6px 6px;
+      box-shadow: 0 10px 18px rgba(20,40,70,.12);
+    }
+
+    /* ===== Card ===== */
+    .card{
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,248,237,.98));
+      border: 2px solid rgba(207,239,255,.95);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--card-shadow);
+      overflow:hidden;
+    }
+
+    .card:before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      background:
+        radial-gradient(700px 220px at 50% 0%, rgba(179,230,255,.40), transparent 60%),
+        radial-gradient(700px 260px at 10% 20%, rgba(255, 232, 168, .35), transparent 60%),
+        radial-gradient(700px 260px at 90% 40%, rgba(179,230,255,.28), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .card-inner{
+      position: relative;
+      padding: 26px 18px 18px;
+    }
+
+    .header{
+      text-align:center;
+      padding: 18px 14px 10px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      background: rgba(231,246,255,.85);
+      border: 1.5px dashed rgba(58,167,255,.35);
+      color: var(--blue-700);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      box-shadow: 0 12px 24px rgba(20,40,70,.08);
+    }
+    .kicker .mini-paw{
+      width: 18px; height: 18px;
+      display:inline-block;
+    }
+
+    .title{
+      font-family: var(--title-font);
+      font-weight: 800;
+      margin: 14px 0 4px;
+      font-size: clamp(30px, 4.8vw, 52px);
+      line-height: 1.05;
+      color: var(--ink);
+      text-shadow: 0 6px 0 rgba(255, 217, 122, .25);
+    }
+
+    .title .name{
+      display:inline-block;
+      padding: 0 .25em;
+      border-radius: 14px;
+      background: rgba(255, 232, 168, .45);
+      border: 2px solid rgba(255, 217, 122, .55);
+      box-shadow: 0 14px 26px rgba(20,40,70,.10);
+    }
+
+    .subtitle{
+      margin: 10px auto 0;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      padding: 0 4px;
+    }
+
+    .subtitle strong{
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 16px 0 8px;
+    }
+
+    .btn{
+      cursor:pointer;
+      border: 0;
+      font-family: var(--text-font);
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 10px 14px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      box-shadow: var(--soft-shadow);
+      text-decoration:none;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px) scale(.99); box-shadow: 0 8px 16px rgba(20,40,70,.12); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(58,167,255,1), rgba(28,134,230,1));
+      color: white;
+    }
+    .btn.secondary{
+      background: linear-gradient(180deg, rgba(255,232,168,1), rgba(255,217,122,1));
+      color: #1E2A3A;
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.85);
+      border: 2px solid rgba(179,230,255,.65);
+      color: var(--blue-700);
+    }
+    .btn svg{ width: 18px; height: 18px; }
+
+    /* Info cards base */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 12px 8px 2px;
+    }
+    @media (min-width: 760px){
+      .grid{
+        gap: 14px;
+        padding: 14px 6px 4px;
+      }
+      .card-inner{ padding: 28px 26px 20px; }
+      .header{ padding: 22px 16px 12px; }
+      .subtitle{ font-size: 16px; }
+    }
+
+    .info{
+      background: rgba(255,255,255,.80);
+      border: 2px solid rgba(207,239,255,.85);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 28px rgba(20,40,70,.10);
+      padding: 14px 14px 12px;
+      position: relative;
+      overflow:hidden;
+    }
+
+    .info:before{
+      content:"";
+      position:absolute;
+      inset: -20px -60px auto auto;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(179,230,255,.55), rgba(179,230,255,0) 65%);
+      transform: rotate(12deg);
+    }
+
+    .info .label{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--blue-700);
+      margin-bottom: 6px;
+    }
+
+    .emoji{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      background: rgba(231,246,255,.9);
+      border: 2px solid rgba(179,230,255,.9);
+      display:grid;
+      place-items:center;
+      font-size: 18px;
+      box-shadow: 0 12px 22px rgba(20,40,70,.08);
+    }
+
+    .info .value{
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+    .info .value small{
+      display:block;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .maps{
+      margin-top: 10px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section{
+      margin: 14px 0 0;
+      padding: 0 8px;
+    }
+
+    .section-title{
+      font-family: var(--title-font);
+      font-size: 22px;
+      margin: 14px 0 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      color: var(--ink);
+      text-align:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(231,246,255,.85);
+      border: 1.5px dashed rgba(58,167,255,.35);
+      color: var(--blue-700);
+      font-weight: 800;
+      box-shadow: 0 12px 22px rgba(20,40,70,.08);
+      font-size: 13px;
+    }
+
+    /* Timeline */
+    .timeline{
+      margin: 10px auto 0;
+      max-width: 720px;
+      background: rgba(255,255,255,.78);
+      border: 2px solid rgba(207,239,255,.85);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 28px rgba(20,40,70,.10);
+      padding: 12px 12px;
+    }
+
+    .tl-item{
+      display:flex;
+      gap: 12px;
+      padding: 10px 8px;
+      border-radius: 14px;
+      align-items:flex-start;
+    }
+    .tl-item + .tl-item{
+      border-top: 1px dashed rgba(58,167,255,.25);
+    }
+
+    .tl-time{
+      flex: 0 0 auto;
+      min-width: 74px;
+      font-weight: 800;
+      color: var(--blue-700);
+      background: rgba(255,232,168,.45);
+      border: 2px solid rgba(255,217,122,.55);
+      border-radius: 14px;
+      padding: 6px 10px;
+      text-align:center;
+      box-shadow: 0 10px 18px rgba(20,40,70,.08);
+      font-size: 13px;
+    }
+
+    .tl-activity{
+      flex: 1 1 auto;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.4;
+      padding-top: 4px;
+      font-size: 14px;
+    }
+
+    /* RSVP & Optional blocks */
+    .block{
+      margin: 10px auto 0;
+      max-width: 720px;
+      background: rgba(255,255,255,.78);
+      border: 2px solid rgba(207,239,255,.85);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 28px rgba(20,40,70,.10);
+      padding: 14px 14px 12px;
+    }
+
+    .row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 10px 8px;
+      border-radius: 14px;
+    }
+    .row + .row{
+      border-top: 1px dashed rgba(58,167,255,.25);
+    }
+
+    .row strong{ font-weight: 800; }
+    .row .hint{ color: var(--muted); font-weight: 600; }
+    .row a{ color: var(--blue-700); font-weight: 800; text-decoration: none; }
+    .row a:hover{ text-decoration: underline; }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(231,246,255,.85);
+      border: 2px solid rgba(179,230,255,.6);
+      font-weight: 800;
+      color: var(--blue-700);
+      font-size: 13px;
+      box-shadow: 0 10px 18px rgba(20,40,70,.08);
+    }
+
+    .optional-list{
+      display:grid;
+      gap: 10px;
+      padding: 8px 6px 2px;
+    }
+
+    .opt-card{
+      background: rgba(255,255,255,.78);
+      border: 2px solid rgba(207,239,255,.85);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 28px rgba(20,40,70,.10);
+      padding: 12px 14px;
+      position: relative;
+      overflow:hidden;
+    }
+    .opt-card:before{
+      content:"";
+      position:absolute;
+      inset: -10px auto auto -30px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 60% 40%, rgba(255,232,168,.45), rgba(255,232,168,0) 65%);
+      transform: rotate(-12deg);
+    }
+
+    .opt-card .opt-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .opt-card .opt-text{
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.5;
+      font-size: 14px;
+      position: relative;
+      padding-right: 4px;
+    }
+
+    .footer{
+      text-align:center;
+      padding: 12px 10px 20px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer .cute{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      border: 2px solid rgba(207,239,255,.85);
+      box-shadow: 0 14px 28px rgba(20,40,70,.10);
+    }
+
+    /* Tiny paw trail */
+    .paw-trail{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      margin: 8px 0 0;
+      opacity: .9;
+    }
+    .paw{
+      width: 16px; height: 16px;
+      filter: drop-shadow(0 8px 10px rgba(20,40,70,.10));
+      opacity: .85;
+    }
+    .paw svg{ width: 100%; height: 100%; }
+    .paw .p{ fill: rgba(28,134,230,.85); }
+    .paw:nth-child(2){ transform: translateY(4px) rotate(10deg) scale(.95); opacity:.7; }
+    .paw:nth-child(3){ transform: translateY(1px) rotate(-12deg) scale(1.05); opacity:.8; }
+    .paw:nth-child(4){ transform: translateY(5px) rotate(16deg) scale(.92); opacity:.65; }
+
+    /* ====== CAMBIO: Reorganiza Fecha/Hora vs Ubicación (sin desperdicio) ====== */
+    .info-grid{ grid-template-columns: 1fr; }
+    .info-stack{ display:grid; gap: 12px; }
+    .info-compact{ padding: 12px 14px 10px; }
+    .info-compact .value{ font-size: 14px; }
+
+    @media (min-width: 760px){
+      .info-grid{
+        grid-template-columns: 0.95fr 1.45fr;
+        align-items: stretch;
+      }
+      .info-stack{ gap: 14px; }
+      .info-location{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    /* Print styles */
+    @media print{
+      body{ background: white !important; }
+      .page{ padding: 0; }
+      .wrap{ padding: 0; }
+      .decor, .doodles, .actions{ display:none !important; }
+      .card{ box-shadow: none !important; border-color: #DDEBFF !important; }
+      a{ color: black !important; text-decoration: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- EDITA AQUÍ -->
+  <script>
+  const data = {
+    nombreBebe: "NOMBRE_DEL_NIÑO",
+    padres: "NOMBRE_DE_LOS_PADRES",
+    fecha: "DÍA MES AÑO",
+    hora: "HORA",
+    ubicacionNombre: "NOMBRE_DEL_LUGAR",
+    direccion: "DIRECCIÓN COMPLETA",
+    mapsUrl: "LINK_DE_GOOGLE_MAPS",
+    itinerario: [
+      { hora: "HH:MM", actividad: "Actividad 1" },
+      { hora: "HH:MM", actividad: "Actividad 2" }
+    ],
+    lluviaRegalos: "Si deseas incluir mesa de regalos o lluvia de sobres, escríbelo aquí",
+    dressCode: "Opcional: Casual / Azul / etc.",
+    rsvpNombre: "NOMBRE_CONTACTO",
+    rsvpTelefono: "+52 ...",
+    rsvpFechaLimite: "FECHA_LÍMITE",
+    notas: "Cualquier nota extra (ej. sin niños, estacionamiento, etc.)"
+  };
+  </script>
+
+  <main class="page">
+    <div class="wrap">
+      <!-- Background doodles -->
+      <div class="doodles" aria-hidden="true">
+        <div class="balloon" style="left: 6%; top: 10%; transform: rotate(-8deg) scale(.95);"></div>
+        <div class="balloon" style="left: 88%; top: 14%; transform: rotate(10deg) scale(1.05);"></div>
+        <div class="balloon" style="left: 80%; top: 68%; transform: rotate(-6deg) scale(.92); opacity:.55;"></div>
+
+        <div class="bubble" style="left: 12%; top: 32%; width: 10px; height:10px;"></div>
+        <div class="bubble" style="left: 24%; top: 74%; width: 16px; height:16px;"></div>
+        <div class="bubble" style="left: 70%; top: 30%; width: 12px; height:12px;"></div>
+        <div class="bubble" style="left: 92%; top: 56%; width: 18px; height:18px;"></div>
+        <div class="bubble" style="left: 52%; top: 86%; width: 12px; height:12px;"></div>
+
+        <div class="star" style="left: 18%; top: 18%; transform: rotate(8deg) scale(1.0);">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="s" d="M12 2l2.1 6.4 6.7.1-5.4 3.9 2 6.4-5.4-3.9-5.4 3.9 2-6.4-5.4-3.9 6.7-.1L12 2z"/></svg>
+        </div>
+        <div class="star" style="left: 86%; top: 34%; transform: rotate(-18deg) scale(.9); opacity:.75;">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="s" d="M12 2l2.1 6.4 6.7.1-5.4 3.9 2 6.4-5.4-3.9-5.4 3.9 2-6.4-5.4-3.9 6.7-.1L12 2z"/></svg>
+        </div>
+        <div class="star" style="left: 40%; top: 64%; transform: rotate(14deg) scale(.85); opacity:.7;">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="s" d="M12 2l2.1 6.4 6.7.1-5.4 3.9 2 6.4-5.4-3.9-5.4 3.9 2-6.4-5.4-3.9 6.7-.1L12 2z"/></svg>
+        </div>
+      </div>
+
+      <!-- Top decoration -->
+      <div class="decor top" aria-hidden="true">
+        <div class="band">
+          <div class="floaties">
+            <div class="left">
+              <div class="cloud"></div>
+              <div class="icon" title="Patita">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-blue" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/>
+                </svg>
+              </div>
+              <div class="sparkle"></div>
+            </div>
+
+            <div class="center">
+              <div class="icon" title="Huesito">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-butter" d="M5.4 10.2c.8-1.3 2.4-1.7 3.6-1 1.3.8 1.7 2.4 1 3.6l-.4.7h4.8l-.4-.7c-.8-1.3-.3-2.8 1-3.6 1.3-.8 2.8-.3 3.6 1 .8 1.3.3 2.8-1 3.6-.4.2-.8.4-1.3.4-.1 0-.3 0-.4 0l-.8 1.3c-.5.8-1.3 1.3-2.2 1.3H10c-.9 0-1.7-.5-2.2-1.3l-.8-1.3c-.1 0-.3 0-.4 0-.5 0-.9-.1-1.3-.4-1.3-.8-1.7-2.4-1-3.6z"/>
+                </svg>
+              </div>
+              <div class="cloud" style="width: 96px;"></div>
+              <div class="icon" title="Estrellita">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-butter" d="M12 2l2.1 6.4 6.7.1-5.4 3.9 2 6.4-5.4-3.9-5.4 3.9 2-6.4-5.4-3.9 6.7-.1L12 2z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="right">
+              <div class="sparkle"></div>
+              <div class="icon" title="Patita">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-blue" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/>
+                </svg>
+              </div>
+              <div class="cloud"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="card" role="region" aria-label="Invitación Baby Shower">
+        <div class="card-inner">
+          <header class="header">
+            <div class="kicker" aria-label="Encabezado">
+              <span class="mini-paw" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="rgba(28,134,230,.9)" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/>
+                </svg>
+              </span>
+              <span id="kickerText">¡Estás invitado!</span>
+              <span class="mini-paw" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="rgba(28,134,230,.9)" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/>
+                </svg>
+              </span>
+            </div>
+
+            <h1 class="title">
+              Baby Shower de <span class="name" id="nombreBebe">NOMBRE_DEL_NIÑO</span>
+            </h1>
+
+            <p class="subtitle" id="subtitle">
+              Acompaña a <strong id="padres">NOMBRE_DE_LOS_PADRES</strong> a celebrar la llegada de
+              <strong id="nombreBebe2">NOMBRE_DEL_NIÑO</strong>.
+            </p>
+
+            <div class="actions">
+              <button class="btn secondary" type="button" id="printBtn" aria-label="Imprimir o guardar como PDF">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M6 7V3h12v4H6zm12 2h1a3 3 0 0 1 3 3v5h-4v4H6v-4H2v-5a3 3 0 0 1 3-3h1v2H5a1 1 0 0 0-1 1v3h4v4h8v-4h4v-3a1 1 0 0 0-1-1h-1V9z"/>
+                </svg>
+                Imprimir / Guardar como PDF
+              </button>
+              <a class="btn primary" id="mapsBtnTop" href="#" target="_blank" rel="noopener" aria-label="Ver en Google Maps">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M12 2c3.9 0 7 3.1 7 7 0 5.2-7 13-7 13S5 14.2 5 9c0-3.9 3.1-7 7-7zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5z"/>
+                </svg>
+                Ver en Maps
+              </a>
+              <a class="btn ghost" id="telBtnTop" href="#" aria-label="Llamar por teléfono RSVP">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M6.6 10.8c1.6 3 3.6 5 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.2 21.2 2.8 13.8 2.8 4.2 2.8 3.5 3.3 3 4 3h3.1c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.3 1.2l-2 2.2z"/>
+                </svg>
+                RSVP
+              </a>
+            </div>
+
+            <div class="paw-trail" aria-hidden="true">
+              <span class="paw"><svg viewBox="0 0 24 24"><path class="p" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/></svg></span>
+              <span class="paw"><svg viewBox="0 0 24 24"><path class="p" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/></svg></span>
+              <span class="paw"><svg viewBox="0 0 24 24"><path class="p" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/></svg></span>
+              <span class="paw"><svg viewBox="0 0 24 24"><path class="p" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/></svg></span>
+            </div>
+          </header>
+
+          <!-- ===== CAMBIO HTML: Fecha + Hora apiladas, Ubicación grande ===== -->
+          <div class="grid info-grid" aria-label="Información del evento">
+            <div class="info-stack">
+              <article class="info info-compact">
+                <div class="label"><span class="emoji" aria-hidden="true">📅</span> Fecha</div>
+                <div class="value" id="fecha">DÍA MES AÑO</div>
+              </article>
+
+              <article class="info info-compact">
+                <div class="label"><span class="emoji" aria-hidden="true">⏰</span> Hora</div>
+                <div class="value" id="hora">HORA</div>
+              </article>
+            </div>
+
+            <article class="info info-location">
+              <div>
+                <div class="label"><span class="emoji" aria-hidden="true">📍</span> Ubicación</div>
+                <div class="value">
+                  <div id="ubicacionNombre">NOMBRE_DEL_LUGAR</div>
+                  <small id="direccion">DIRECCIÓN COMPLETA</small>
+                </div>
+              </div>
+
+              <div class="maps">
+                <a class="btn primary" id="mapsBtn" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M12 2c3.9 0 7 3.1 7 7 0 5.2-7 13-7 13S5 14.2 5 9c0-3.9 3.1-7 7-7zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5z"/>
+                  </svg>
+                  Ver en Maps
+                </a>
+                <button class="btn ghost" type="button" id="copyAddressBtn" aria-label="Copiar dirección">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M16 1H6a2 2 0 0 0-2 2v12h2V3h10V1zm3 4H10a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16h-9V7h9v14z"/>
+                  </svg>
+                  Copiar dirección
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Itinerario -->
+          <section class="section" id="itinerarioSection" aria-label="Itinerario">
+            <div class="section-title">
+              <span class="pill" aria-hidden="true">🐾</span>
+              Itinerario
+              <span class="pill" aria-hidden="true">🦴</span>
+            </div>
+            <div class="timeline" id="itinerarioList"></div>
+          </section>
+
+          <!-- RSVP -->
+          <section class="section" aria-label="RSVP">
+            <div class="section-title">
+              <span class="pill" aria-hidden="true">📩</span>
+              RSVP
+              <span class="pill" aria-hidden="true">⭐</span>
+            </div>
+
+            <div class="block">
+              <div class="row">
+                <div>
+                  <div class="tag" aria-hidden="true">Confirmar asistencia</div>
+                  <div style="margin-top:8px; font-weight:800;">
+                    Confirmar asistencia con <span id="rsvpNombre">NOMBRE_CONTACTO</span>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <div class="hint">Teléfono</div>
+                  <a id="rsvpTelLink" href="tel:+52">+52 ...</a>
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <strong>Fecha límite</strong>
+                  <div class="hint" id="rsvpFechaLimite">FECHA_LÍMITE</div>
+                </div>
+                <div style="text-align:right;">
+                  <a class="btn ghost" id="waLink" href="#" target="_blank" rel="noopener" aria-label="Enviar WhatsApp RSVP">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 2.8 17.1L2 22l5-1.3A11 11 0 0 0 20.5 3.5zM12 20a9 9 0 0 1-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3A9 9 0 1 1 12 20zm5.2-6.6c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8.9-1 .9-.4.1-.7-.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-2c-.2-.3 0-.5.1-.7l.5-.6c.1-.2.2-.4.1-.6s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.3 1.4 3.5 2.4 3.7 5.8 5.1c.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.7-.7 1.9-1.4s.2-1.3.1-1.4-.3-.2-.6-.3z"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Opcionales -->
+          <section class="section" id="opcionalesSection" aria-label="Opcionales">
+            <div class="section-title">
+              <span class="pill" aria-hidden="true">☁️</span>
+              Detalles
+              <span class="pill" aria-hidden="true">🎈</span>
+            </div>
+
+            <div class="optional-list" id="optionalList"></div>
+          </section>
+
+          <footer class="footer">
+            <div class="cute">
+              <span aria-hidden="true">💙</span>
+              <span>¡Te esperamos con mucha alegría!</span>
+              <span aria-hidden="true">🐶✨</span>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+      <!-- Bottom decoration -->
+      <div class="decor bottom" aria-hidden="true">
+        <div class="band">
+          <div class="floaties">
+            <div class="left">
+              <div class="icon" title="Estrellita">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-butter" d="M12 2l2.1 6.4 6.7.1-5.4 3.9 2 6.4-5.4-3.9-5.4 3.9 2-6.4-5.4-3.9 6.7-.1L12 2z"/>
+                </svg>
+              </div>
+              <div class="cloud" style="width: 98px;"></div>
+            </div>
+
+            <div class="center">
+              <div class="sparkle"></div>
+              <div class="icon" title="Huesito">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-butter" d="M5.4 10.2c.8-1.3 2.4-1.7 3.6-1 1.3.8 1.7 2.4 1 3.6l-.4.7h4.8l-.4-.7c-.8-1.3-.3-2.8 1-3.6 1.3-.8 2.8-.3 3.6 1 .8 1.3.3 2.8-1 3.6-.4.2-.8.4-1.3.4-.1 0-.3 0-.4 0l-.8 1.3c-.5.8-1.3 1.3-2.2 1.3H10c-.9 0-1.7-.5-2.2-1.3l-.8-1.3c-.1 0-.3 0-.4 0-.5 0-.9-.1-1.3-.4-1.3-.8-1.7-2.4-1-3.6z"/>
+                </svg>
+              </div>
+              <div class="sparkle"></div>
+            </div>
+
+            <div class="right">
+              <div class="cloud"></div>
+              <div class="icon" title="Patita">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="fill-blue" d="M7.8 10.2c1.1 0 2-1.2 2-2.6S9 5 7.8 5 5.7 6.1 5.7 7.6s1 2.6 2.1 2.6zm8.4 0c1.1 0 2.1-1.2 2.1-2.6S17.4 5 16.2 5 14 6.1 14 7.6s1 2.6 2.2 2.6zM5.2 14.3c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zm13.6 0c.9 0 1.7-.9 1.7-2s-.8-2-1.7-2-1.7.9-1.7 2 .8 2 1.7 2zM12 12c-2.7 0-5.2 1.9-5.2 4.3 0 1.2.9 2.2 2.3 2.2 1.4 0 2.1-1.1 2.9-1.1s1.5 1.1 2.9 1.1 2.3-1 2.3-2.2C17.2 13.9 14.7 12 12 12z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+
+    const safeText = (v) => (v ?? "").toString().trim();
+    const hasText = (v) => safeText(v).length > 0;
+
+    function normalizePhone(phone){
+      const raw = safeText(phone);
+      const cleaned = raw.replace(/[^\d+]/g, "");
+      return cleaned || raw;
+    }
+
+    function setText(id, value){
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = safeText(value);
+    }
+
+    function setHref(id, href){
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.setAttribute("href", href);
+    }
+
+    function renderItinerary(items){
+      const section = document.getElementById("itinerarioSection");
+      const list = document.getElementById("itinerarioList");
+      const arr = Array.isArray(items) ? items.filter(it => hasText(it?.hora) || hasText(it?.actividad)) : [];
+
+      if (!arr.length){
+        section.style.display = "none";
+        return;
+      }
+      section.style.display = "";
+
+      list.innerHTML = "";
+      arr.forEach((it) => {
+        const time = hasText(it?.hora) ? safeText(it.hora) : "—";
+        const act = hasText(it?.actividad) ? safeText(it.actividad) : "Actividad";
+        const row = document.createElement("div");
+        row.className = "tl-item";
+        row.innerHTML = `
+          <div class="tl-time">${escapeHtml(time)}</div>
+          <div class="tl-activity">${escapeHtml(act)}</div>
+        `;
+        list.appendChild(row);
+      });
+    }
+
+    function renderOptionals(d){
+      const section = document.getElementById("opcionalesSection");
+      const list = document.getElementById("optionalList");
+
+      const optionals = [
+        { key: "lluviaRegalos", title: "Lluvia de regalos / Mesa de regalos", icon: "🎁", text: d.lluviaRegalos },
+        { key: "dressCode", title: "Dress code", icon: "👕", text: d.dressCode },
+        { key: "notas", title: "Notas", icon: "📝", text: d.notas }
+      ].filter(item => hasText(item.text));
+
+      if (!optionals.length){
+        section.style.display = "none";
+        return;
+      }
+      section.style.display = "";
+      list.innerHTML = "";
+
+      optionals.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "opt-card";
+        card.innerHTML = `
+          <div class="opt-title">
+            <span class="emoji" aria-hidden="true">${item.icon}</span>
+            <span>${escapeHtml(item.title)}</span>
+          </div>
+          <div class="opt-text">${escapeHtml(safeText(item.text))}</div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str){
+      return safeText(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function init(){
+      setText("nombreBebe", data.nombreBebe);
+      setText("nombreBebe2", data.nombreBebe);
+      setText("padres", data.padres);
+
+      setText("fecha", data.fecha);
+      setText("hora", data.hora);
+      setText("ubicacionNombre", data.ubicacionNombre);
+      setText("direccion", data.direccion);
+
+      const maps = hasText(data.mapsUrl) ? safeText(data.mapsUrl) : "#";
+      setHref("mapsBtn", maps);
+      setHref("mapsBtnTop", maps);
+
+      setText("rsvpNombre", data.rsvpNombre);
+      setText("rsvpFechaLimite", data.rsvpFechaLimite);
+
+      const phoneRaw = safeText(data.rsvpTelefono);
+      const phoneForLinks = normalizePhone(phoneRaw);
+      setText("rsvpTelLink", phoneRaw || "+52 ...");
+      setHref("rsvpTelLink", `tel:${phoneForLinks || ""}`);
+      setHref("telBtnTop", `tel:${phoneForLinks || ""}`);
+
+      const waPhone = (phoneForLinks || "").replace(/[^\d]/g, "");
+      const waText = encodeURIComponent("Hola, quiero confirmar mi asistencia al Baby Shower 😊🐾");
+      const waUrl = waPhone ? `https://wa.me/${waPhone}?text=${waText}` : "#";
+      setHref("waLink", waUrl);
+
+      const copyBtn = document.getElementById("copyAddressBtn");
+      copyBtn?.addEventListener("click", async () => {
+        const text = [safeText(data.ubicacionNombre), safeText(data.direccion)].filter(Boolean).join("\n");
+        try{
+          await navigator.clipboard.writeText(text);
+          copyBtn.textContent = "¡Copiado! ✅";
+          setTimeout(() => (copyBtn.textContent = "Copiar dirección"), 1800);
+        }catch(e){
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          copyBtn.textContent = "¡Copiado! ✅";
+          setTimeout(() => (copyBtn.textContent = "Copiar dirección"), 1800);
+        }
+      });
+
+      document.getElementById("printBtn")?.addEventListener("click", () => window.print());
+
+      renderItinerary(data.itinerario);
+      renderOptionals(data);
+
+      if (!hasText(data.mapsUrl)){
+        document.getElementById("mapsBtn")?.setAttribute("style", "display:none");
+        document.getElementById("mapsBtnTop")?.setAttribute("style", "display:none");
+      }
+
+      if (!hasText(phoneRaw)){
+        document.getElementById("telBtnTop")?.setAttribute("style", "display:none");
+        document.getElementById("waLink")?.setAttribute("style", "display:none");
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
